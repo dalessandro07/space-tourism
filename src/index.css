@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Font */
+@layer base {
+    html {
+        font-family: 'Bellefair', serif;
+    }
+}
+
+#root {
+    overflow-x: hidden;
+}

@@ -1,0 +1,33 @@
+{
+    "name": "space-tourism-website",
+    "version": "1.0.0",
+    "description": "Challenge website from frontendmentor.io",
+    "main": "index.js",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "framer-motion": "^6.2.8",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-router-dom": "^6.2.2"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^1.0.7",
+        "autoprefixer": "^10.4.4",
+        "postcss": "^8.4.12",
+        "tailwindcss": "^3.0.23",
+        "vite": "^2.8.0"
+    },
+    "keywords": [
+        "Website",
+        "web",
+        "design",
+        "javascript",
+        "react"
+    ],
+    "author": "Alessandro Rios",
+    "license": "MIT"
+}
