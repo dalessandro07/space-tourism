@@ -3,7 +3,7 @@ import Carousel from './CarouselCrew';
 
 const CrewItem = ({ crewItem }) => {
     return (
-        <section className="flex flex-col items-center">
+        <section className="flex flex-col items-center lg:grow">
             {/* Main Content */}
             <Carousel crewItem={crewItem} />
             <Link className="md:hidden" to="/technology">

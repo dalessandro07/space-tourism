@@ -4,14 +4,14 @@ export const contexto = createContext();
 
 const { Provider } = contexto;
 
-const TravelContext = ({ children }) => {
+const TravelContext = ({ lang, children }) => {
     const [travel, setTravel] = useState([]);
 
     const addDestination = (destino) => {
         setTravel([{ ...travel, destino }]);
     };
 
-    return <Provider value={{ travel, addDestination }}>{children}</Provider>;
+    return <Provider value={{ travel, addDestination, lang }}>{children}</Provider>;
 };
 
 export default TravelContext;

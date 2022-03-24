@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Hero from './components/Hero';
 import Destination from './components/Destination';
 import Crew from './components/Crew';
@@ -8,15 +10,20 @@ import Technology from './components/Technology';
 import TravelContext from './context/TravelContext';
 
 function App() {
+    const { EN, ES } = data;
+    const [lang, setLang] = useState(EN);
+
+    const changeDefaultLang = (value) => (value === 'ES' ? setLang(ES) : setLang(EN));
+
     return (
-        <TravelContext>
+        <TravelContext lang={lang}>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Hero />} />
-                    <Route path="/destination" element={<Destination data={data} />} />
-                    <Route path="/destination/:destino" element={<Destination data={data} />} />
-                    <Route path="/crew" element={<Crew data={data} />} />
-                    <Route path="/technology" element={<Technology data={data} />} />
+                    <Route path="/" element={<Hero data={lang} changeDefaultLang={changeDefaultLang} />} />
+                    <Route path="/destination" element={<Destination data={lang} />} />
+                    <Route path="/destination/:destino" element={<Destination data={lang} />} />
+                    <Route path="/crew" element={<Crew data={lang} />} />
+                    <Route path="/technology" element={<Technology data={lang} />} />
                 </Routes>
             </Router>
         </TravelContext>

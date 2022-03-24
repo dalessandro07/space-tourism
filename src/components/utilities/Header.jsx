@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Menu from './Menu';
 import MenuLG from './MenuLG';
+import MenuXL from './MenuXL';
+import { contexto } from '../../context/TravelContext';
 
 const Header = () => {
     const [nav, setNav] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
+
+    const { lang } = useContext(contexto);
 
     const reportWindowSize = () => setWidth(window.innerWidth);
     window.onresize = reportWindowSize;
@@ -17,12 +21,13 @@ const Header = () => {
     };
 
     return (
-        <header className="flex justify-between items-center p-8 bg-transparent">
+        <header className="relative flex justify-between items-center p-8 lg:pr-0 bg-transparent">
             <Link to="/">
-                <img className="w-10 md:w-14" src="/assets/shared/logo.svg" alt="" />
+                <img className="w-8 md:w-10" src="/assets/shared/logo.svg" alt="" />
             </Link>
             <img onClick={() => setNav(true)} className="h-5 cursor-pointer md:hidden" src="/assets/shared/icon-hamburger.svg" alt="" />
-            {width >= 768 ? <MenuLG /> : <Menu state={nav} handleNav={handleNav} />}
+            <div className="hidden absolute lg:flex grow ml-28 z-50 w-2/6 h-[1.5px] bg-white/[25%]"></div>
+            {width >= 768 ? width < 1024 ? <MenuLG lang={lang} /> : <MenuXL lang={lang} /> : <Menu lang={lang} state={nav} handleNav={handleNav} />}
         </header>
     );
 };
