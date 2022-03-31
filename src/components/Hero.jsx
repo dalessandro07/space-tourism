@@ -32,7 +32,7 @@ const Hero = ({ data, changeDefaultLang }) => {
                         scale: [1, 1.05, 1],
                         transition: {
                             ease: 'easeInOut',
-                            loop: Infinity,
+                            repeat: Infinity,
                             repeatDelay: 1,
                         },
                     }}
