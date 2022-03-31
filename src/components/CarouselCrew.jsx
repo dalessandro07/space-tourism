@@ -47,14 +47,14 @@ const Carousel = ({ crewItem }) => {
                 <AnimatePresence initial={false} custom={direction}>
                     <div className="flex justify-center w-full mt-8">
                         <motion.img
-                            className={`w-2/5 md:w-2/4 md:mt-12 lg:mt-0 lg:absolute lg:bottom-0 lg:m-0 cursor-move ${height < 625 ? 'lg:w-2/4' : 'lg:w-3/4'}`}
+                            className={`w-2/5 md:w-2/4 md:mt-12 lg:mt-0 lg:absolute lg:bottom-0 lg:m-0 cursor-move ${height < 625 ? 'lg:w-2/4' : 'lg:w-3/4'} max-h-[500px] object-contain`}
                             key={page}
                             src={crewItem[imageIndex].images.png}
                             custom={direction}
                             variants={variants}
                             initial="enter"
-                            animate="center"
                             exit="exit"
+                            animate="center"
                             transition={{
                                 x: { type: 'spring', stiffness: 300, damping: 30 },
                                 opacity: { duration: 0.5 },
@@ -90,11 +90,16 @@ const Carousel = ({ crewItem }) => {
                 </section>
             </div>
 
-            <section className="flex flex-col items-center mt-8 lg:w-2/4 lg:justify-start lg:items-end">
+            <motion.section
+                animate={{
+                    x: [0, 5, 0],
+                    opacity: [0, 1],
+                }}
+                className="flex flex-col items-center mt-8 lg:w-2/4 lg:justify-start lg:items-end">
                 <h2 className="text-sm text-white/50 uppercase md:text-xl lg:text-left lg:w-[85%]">{crewItem[imageIndex].role}</h2>
                 <h1 className="text-xl my-1 text-white uppercase md:text-3xl md:mb-4 lg:text-left lg:w-[85%]">{crewItem[imageIndex].name}</h1>
                 <p className="text-sm text-center my-2 mx-12 text-[#D0D6F9] md:text-xl md:w-3/5 md:mb-8 lg:mx-8 lg:w-4/5 lg:text-left">{crewItem[imageIndex].bio}</p>
-            </section>
+            </motion.section>
         </div>
     );
 };

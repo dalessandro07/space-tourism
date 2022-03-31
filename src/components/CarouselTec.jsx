@@ -45,7 +45,7 @@ const Carousel = ({ data, tecItem }) => {
     return (
         <div className="lg:flex lg:flex-row-reverse lg:grow lg:mb-8 overflow-hidden">
             <AnimatePresence initial={false} custom={direction}>
-                <div className="flex justify-center w-full mt-8 lg:w-full">
+                <div className="flex justify-center w-full mt-8 lg:w-full lg:h-[480px]">
                     <motion.img
                         className="cursor-move lg:object-cover"
                         key={page}
@@ -93,13 +93,17 @@ const Carousel = ({ data, tecItem }) => {
                         );
                     })}
                 </section>
-                <section className="flex flex-col items-center my-8 lg:items-start lg:justify-evenly">
+                <motion.section
+                    animate={{
+                        opacity: [0, 1],
+                    }}
+                    className="flex flex-col items-center my-8 lg:items-start lg:justify-evenly">
                     <div>
                         <h2 className="text-sm text-white/50 uppercase md:text-lg">{data.textPage.terminology}</h2>
                         <h1 className="text-xl my-1 text-white uppercase md:text-4xl">{tecItem[imageIndex].name}</h1>
                     </div>
                     <p className="lg:text-lg text-center my-2 mx-12 text-[#D0D6F9] md:text-xl md:mx-20 md:my-8 lg:mr-20 lg:m-0 lg:text-left">{tecItem[imageIndex].description}</p>
-                </section>
+                </motion.section>
             </div>
         </div>
     );

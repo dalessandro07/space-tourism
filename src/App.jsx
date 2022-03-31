@@ -20,10 +20,10 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Hero data={lang} changeDefaultLang={changeDefaultLang} />} />
-                    <Route path="/destination" element={<Destination data={lang} />} />
-                    <Route path="/destination/:destino" element={<Destination data={lang} />} />
-                    <Route path="/crew" element={<Crew data={lang} />} />
-                    <Route path="/technology" element={<Technology data={lang} />} />
+                    <Route path="/destination" element={<Destination data={lang} changeDefaultLang={changeDefaultLang} />} />
+                    <Route path="/destination/:destino" element={<Destination data={lang} changeDefaultLang={changeDefaultLang} />} />
+                    <Route path="/crew" element={<Crew data={lang} changeDefaultLang={changeDefaultLang} />} />
+                    <Route path="/technology" element={<Technology data={lang} changeDefaultLang={changeDefaultLang} />} />
                 </Routes>
             </Router>
         </TravelContext>

@@ -3,12 +3,17 @@ import Carousel from './CarouselTec';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Technology = ({ data }) => {
+const Technology = ({ data, changeDefaultLang }) => {
     const [next, setNext] = useState('READY?');
+
+    const handleChangeLang = (e) => {
+        changeDefaultLang(e.target.value);
+    };
 
     return (
         <section className="flex flex-col bg-[url('/assets/technology/background-technology-mobile.jpg')] md:bg-[url('/assets/technology/background-technology-tablet.jpg')] lg:bg-[url('/assets/technology/background-technology-desktop.jpg')] bg-no-repeat bg-cover min-h-screen">
             <Header />
+
             <main className="flex flex-col grow justify-around">
                 {/* Page title*/}
 
@@ -23,6 +28,7 @@ const Technology = ({ data }) => {
 
                 <Carousel data={data} tecItem={data.technology} />
             </main>
+
             <Link className="flex justify-center lg:hidden" to="/">
                 <section
                     onMouseEnter={() => setNext('YES!')}
@@ -33,6 +39,20 @@ const Technology = ({ data }) => {
                     <button className="text-[#0B0D17]">{next}</button>
                 </section>
             </Link>
+
+            <footer className="fixed right-0 lg:left-0 bottom-0 m-4">
+                <select onChange={handleChangeLang} defaultValue="def" name="" id="">
+                    <option disabled value="def">
+                        Language
+                    </option>
+                    <option className="" value="EN">
+                        English
+                    </option>
+                    <option className="" value="ES">
+                        Español
+                    </option>
+                </select>
+            </footer>
         </section>
     );
 };

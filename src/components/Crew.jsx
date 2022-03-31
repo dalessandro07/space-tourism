@@ -1,7 +1,11 @@
 import Header from './utilities/Header';
 import CrewItem from './CrewItem';
 
-const Crew = ({ data }) => {
+const Crew = ({ data, changeDefaultLang }) => {
+    const handleChangeLang = (e) => {
+        changeDefaultLang(e.target.value);
+    };
+
     return (
         <section className="flex flex-col bg-[url('/assets/crew/background-crew-mobile.jpg')] md:bg-[url('/assets/crew/background-crew-tablet.jpg')] lg:bg-[url('/assets/crew/background-crew-desktop.jpg')] bg-no-repeat bg-cover min-h-screen">
             <Header />
@@ -19,6 +23,20 @@ const Crew = ({ data }) => {
 
                 <CrewItem crewItem={data.crew} />
             </main>
+
+            <footer className="fixed left-0 lg:right-0 bottom-0 m-4">
+                <select onChange={handleChangeLang} defaultValue="def" name="" id="">
+                    <option disabled value="def">
+                        Language
+                    </option>
+                    <option className="" value="EN">
+                        English
+                    </option>
+                    <option className="" value="ES">
+                        Español
+                    </option>
+                </select>
+            </footer>
         </section>
     );
 };

@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { NavLink, Link, useParams } from 'react-router-dom';
 import { contexto } from '../context/TravelContext';
 
+import { motion } from 'framer-motion';
+
 const DestinationItem = ({ navigateItems, destItem }) => {
     const { addDestination } = useContext(contexto);
 
@@ -15,9 +17,18 @@ const DestinationItem = ({ navigateItems, destItem }) => {
         <div className="lg:flex lg:grow">
             {/* Image */}
 
-            <header className="flex justify-center lg:w-2/4 items-center">
+            <motion.header
+                animate={{
+                    translateY: [0, -20, 0],
+                    transition: {
+                        duration: 4,
+                        ease: 'linear',
+                        repeat: Infinity,
+                    },
+                }}
+                className="flex justify-center lg:w-2/4 items-center">
                 <img className="w-36 my-6 md:w-1/3 lg:w-2/4 object-cover" src={destItem.images.png} alt="" />
-            </header>
+            </motion.header>
 
             <main className="lg:flex lg:flex-col lg:w-2/4">
                 {/* Navigation */}
