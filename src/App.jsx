@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import Destination from './components/Destination';
 import Crew from './components/Crew';
 
-import data from './assets/data.json';
+import data from './assets/data';
 import Technology from './components/Technology';
 import TravelContext from './context/TravelContext';
 

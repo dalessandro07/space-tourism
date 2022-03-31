@@ -5,6 +5,8 @@ import MenuLG from './MenuLG';
 import MenuXL from './MenuXL';
 import { contexto } from '../../context/TravelContext';
 
+import logo from '/assets/shared/logo.svg';
+
 const Header = () => {
     const [nav, setNav] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
@@ -23,7 +25,7 @@ const Header = () => {
     return (
         <header className="relative flex justify-between items-center p-8 lg:pr-0 bg-transparent">
             <Link to="/">
-                <img className="w-8 md:w-10" src="/assets/shared/logo.svg" alt="" />
+                <img className="w-8 md:w-10" src={logo} alt="" />
             </Link>
             <img onClick={() => setNav(true)} className="h-5 cursor-pointer md:hidden" src="/assets/shared/icon-hamburger.svg" alt="" />
             <div className="hidden absolute lg:flex grow ml-28 z-50 w-2/6 h-[1.5px] bg-white/[25%]"></div>
