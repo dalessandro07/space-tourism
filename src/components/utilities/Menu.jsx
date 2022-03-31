@@ -1,12 +1,14 @@
 import { NavLink, useLocation } from 'react-router-dom';
 
+import close from '/assets/shared/icon-close.svg';
+
 const Menu = ({ lang, state, handleNav }) => {
     const { pathname } = useLocation();
 
     return (
         <section className={state ? 'z-50 animate-slide flex flex-col bg-white/0 backdrop-blur-[81.55px] w-3/5 fixed right-0 bottom-0 h-screen' : 'hidden'}>
             <div className="flex w-full justify-end">
-                <img className="p-6 cursor-pointer" onClick={(e) => handleNav(false, e)} src="/assets/shared/icon-close.svg" alt="" />
+                <img className="p-6 cursor-pointer" onClick={(e) => handleNav(false, e)} src={close} alt="" />
             </div>
             <div className="mt-8 grow">
                 <ul className="flex flex-col">

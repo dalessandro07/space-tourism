@@ -6,6 +6,8 @@ import MenuXL from './MenuXL';
 import { contexto } from '../../context/TravelContext';
 
 import logo from '/assets/shared/logo.svg';
+import hamburguer from '/assets/shared/icon-hamburger.svg';
+import close from '/assets/shared/icon-close.svg';
 
 const Header = () => {
     const [nav, setNav] = useState(false);
@@ -27,7 +29,7 @@ const Header = () => {
             <Link to="/">
                 <img className="w-8 md:w-10" src={logo} alt="" />
             </Link>
-            <img onClick={() => setNav(true)} className="h-5 cursor-pointer md:hidden" src="/assets/shared/icon-hamburger.svg" alt="" />
+            <img onClick={() => setNav(true)} className="h-5 cursor-pointer md:hidden" src={hamburguer} alt="" />
             <div className="hidden absolute lg:flex grow ml-28 z-50 w-2/6 h-[1.5px] bg-white/[25%]"></div>
             {width >= 768 ? width < 1024 ? <MenuLG lang={lang} /> : <MenuXL lang={lang} /> : <Menu lang={lang} state={nav} handleNav={handleNav} />}
         </header>
