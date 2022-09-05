@@ -45,7 +45,7 @@ const Hero = ({ data, changeDefaultLang }) => {
                 </motion.section>
             </main>
 
-            <footer className="absolute right-0 bottom-0 m-4">
+            <footer className="absolute flex flex-col gap-4 items-center right-0 bottom-0 m-4">
                 <select onChange={handleChangeLang} defaultValue="def" name="" id="">
                     <option disabled value="def">
                         Language
@@ -57,6 +57,7 @@ const Hero = ({ data, changeDefaultLang }) => {
                         Español
                     </option>
                 </select>
+                <p className="text-sm text-white">Desarrollado por Alessandro Rios</p>
             </footer>
         </section>
     );
